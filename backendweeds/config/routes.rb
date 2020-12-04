@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :flavors
+  resources :flavors, only: [:index]
   resources :joiners
-  resources :effects
-  resources :strains
+  resources :effects, only: [:index]
+  resources :strains, only: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
