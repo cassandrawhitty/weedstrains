@@ -45,6 +45,7 @@ function showPositiveEffects(positiveEffects) {
     option.classList.add("selectableEffect");
     option.type = "checkbox";
     label = effect["effect"];
+    option.setAttribute("name", label);
     option.id = label;
     positiveDiv.append(option);
     positiveDiv.append(label);
@@ -72,6 +73,7 @@ function showMedicalEffects(medicalEffects) {
     option.classList.add("selectableEffect");
     option.type = "checkbox";
     label = effect["effect"];
+    option.setAttribute("name", label);
     option.id = label;
     medicalDiv.append(option);
     medicalDiv.append(label);
@@ -99,6 +101,7 @@ function showNegativeEffects(negativeEffects) {
     option.classList.add("selectableEffect");
     option.type = "checkbox";
     label = effect["effect"];
+    option.setAttribute("name", `negative${label}`);
     option.id = label;
     negativeDiv.append(option);
     negativeDiv.append(label);
@@ -121,3 +124,8 @@ function showNegativeEffects(negativeEffects) {
 //     effectsection.append(linebreak);
 //   });
 // }
+
+const params = new URLSearchParams(window.location.search);
+console.log(params);
+let mySearchParams = params.get();
+// console.log(params);
