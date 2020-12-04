@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :flavors
   resources :joiners
   resources :effects
   resources :strains

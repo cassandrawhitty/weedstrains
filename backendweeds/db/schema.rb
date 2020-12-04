@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_211502) do
+ActiveRecord::Schema.define(version: 2020_12_04_171833) do
 
   create_table "effects", force: :cascade do |t|
     t.string "effect"
-    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
+  end
+
+  create_table "flavors", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,9 +37,12 @@ ActiveRecord::Schema.define(version: 2020_12_03_211502) do
   create_table "strains", force: :cascade do |t|
     t.string "race"
     t.string "flavor"
-    t.string "effect"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "positive_effects"
+    t.string "negative_effects"
+    t.string "medical_effects"
+    t.string "name"
   end
 
   add_foreign_key "joiners", "effects"
