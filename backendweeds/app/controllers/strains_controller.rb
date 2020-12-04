@@ -1,7 +1,7 @@
 class StrainsController < ApplicationController
 
     def index
-        @strains = Strain.all 
+        @strains = Strain.all
         render json: @strains
     end
 
@@ -9,6 +9,11 @@ class StrainsController < ApplicationController
         @strain = Strain.find(params[:id])
 
         render json: @strain
+    end
+
+    def filter 
+        p params
+        render json: params
     end
 
 end

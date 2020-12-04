@@ -127,5 +127,30 @@ function showNegativeEffects(negativeEffects) {
 
 const params = new URLSearchParams(window.location.search);
 console.log(params);
-let mySearchParams = params.get();
+let mySearchParams = params.get("strains");
 // console.log(params);
+
+let effectForm = document.querySelector("#effects-form");
+
+effectForm.addEventListener("submit", idontknow);
+
+function idontknow(event) {
+  event.preventDefault();
+  checkedOptions = document.querySelectorAll("input[type=checkbox]:checked");
+  //   console.log(event);
+  //   console.log(checkedOptions)
+  getStrings(checkedOptions);
+  //   console.log(getStrings(checkedOptions));
+}
+
+let desiredEffects = [];
+
+function getStrings(checkedOptions) {
+  //   console.log(checkedOptions.values());
+  return Array.from(checkedOptions).map((element) => {
+    desiredEffects.push(element.name);
+  });
+  // .split(" ");
+}
+
+console.log(desiredEffects);
