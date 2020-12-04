@@ -10,15 +10,31 @@ body {
   background: greenyellow;
 }
 
+.effects-label {
+  margin-left: -5px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
 #submitbutton {
   padding: 1rem;
 }
 
+#fieldset {
+  display: flex;
+  justify-content: space-between;
+}
+
+.effects-div {
+  display: inline;
+  justify-content: space-between;
+}
+
 #effects-section {
   display: block;
-  flex-direction: column;
-  flex-wrap: wrap;
-  font-family: "Work Sans", sans-serif;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  /* font-family: "Work Sans", sans-serif; */
 }
 
 #effects-form {
@@ -37,4 +53,10 @@ form {
 label {
   margin: 3rem;
   font-family: "Work Sans", sans-serif;
+}
+
+fieldset > #effects-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
