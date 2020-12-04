@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+h1 {
+  font-family: "Work Sans", sans-serif;
+  font-size: 50px;
+  margin-left: 2rem;
+}
+
+body {
+  background: greenyellow;
+}
+
+#submitbutton {
+  padding: 1rem;
+}
+
+#effects-section {
+  display: block;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: "Work Sans", sans-serif;
+}
+
+#effects-form {
+  background: rgb(213, 255, 149);
+  padding: 1rem;
+}
+
+form {
+  font-family: "Work Sans", sans-serif;
+}
+
+#toggle {
+  margin: 3rem;
+}
+
+label {
+  margin: 3rem;
+  font-family: "Work Sans", sans-serif;
+}
