@@ -8,7 +8,7 @@ class StrainsController < ApplicationController
     def show 
         @strain = Strain.find(params[:id])
 
-        render json: @strain, include: [:flavors, :positive_effects, :negative_effects, :medical_effects]
+        render json: @strain
     end
 
 end
