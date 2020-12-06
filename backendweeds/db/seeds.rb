@@ -15,6 +15,12 @@ response = RestClient.get(strains_URL)
 effects_URL = 'http://strainapi.evanbusse.com/4nX8ujH/searchdata/effects'
 response = RestClient.get(effects_URL)
     all_effects = JSON.parse(response)
+    
+all_effects.each do |effect|
+    Effect.create(
+        effect: effect
+    )
+end
     # binding.pry
 
 all_strains.each do |strain|

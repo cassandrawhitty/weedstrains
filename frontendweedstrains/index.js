@@ -45,7 +45,8 @@ function showPositiveEffects(positiveEffects) {
     option.classList.add("selectableEffect");
     option.type = "checkbox";
     label = effect["effect"];
-    option.setAttribute("name", label);
+    option.setAttribute("name", `${label}-effect-positive`);
+    // label.htmlFor("name", `${label}-effect-negative`);
     option.id = label;
     positiveDiv.append(option);
     positiveDiv.append(label);
@@ -73,7 +74,8 @@ function showMedicalEffects(medicalEffects) {
     option.classList.add("selectableEffect");
     option.type = "checkbox";
     label = effect["effect"];
-    option.setAttribute("name", label);
+    option.setAttribute("name", `${label}-effect-medical`);
+    // label.htmlFor("name", `${label}-effect-negative`);
     option.id = label;
     medicalDiv.append(option);
     medicalDiv.append(label);
@@ -101,7 +103,8 @@ function showNegativeEffects(negativeEffects) {
     option.classList.add("selectableEffect");
     option.type = "checkbox";
     label = effect["effect"];
-    option.setAttribute("name", `negative${label}`);
+    option.setAttribute("name", `${label}-effect-negative`);
+    // label.htmlFor("name", `${label}-effect-negative`);
     option.id = label;
     negativeDiv.append(option);
     negativeDiv.append(label);
