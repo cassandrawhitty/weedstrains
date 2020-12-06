@@ -132,15 +132,12 @@ let mySearchParams = params.get("strains");
 
 let effectForm = document.querySelector("#effects-form");
 
-effectForm.addEventListener("submit", idontknow);
+effectForm.addEventListener("submit", callbackFunction);
 
-function idontknow(event) {
-  event.preventDefault();
+function callbackFunction(event) {
+  //   event.preventDefault();
   checkedOptions = document.querySelectorAll("input[type=checkbox]:checked");
-  //   console.log(event);
-  //   console.log(checkedOptions)
   getStrings(checkedOptions);
-  //   console.log(getStrings(checkedOptions));
 }
 
 let desiredEffects = [];

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :effects, only: [:index]
   resources :strains, only: [:index, :show]
   get "filter", to: "strains#filter"
+  get "joiners", to: "joiners#create"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
