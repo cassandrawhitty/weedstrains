@@ -78,6 +78,7 @@ class JoinersController < ApplicationController
 
 
     def create
+        Joiner.destroy_all
         $strainstodisplay = []
         selectedpositiveeffects = []
         selectednegativeeffects = []
@@ -88,9 +89,9 @@ class JoinersController < ApplicationController
            if (key.include? "effect" && "positive")
                 selectedpositiveeffects.push(key.split("-").first)
            elsif (key.include? "effect" && "medical")
-            selectedmedicaleffects.push(key.split("-").first)
+                selectedmedicaleffects.push(key.split("-").first)
            elsif (key.include? "effect" && "negative")
-            selectednegativeeffects.push(key.split("-").first)
+                selectednegativeeffects.push(key.split("-").first)
            end
            
            selecteffects.push(Effect.find_by effect: "{\"effect\"=>\"Relaxed\", \"type\"=>\"positive\"}")
@@ -100,7 +101,7 @@ class JoinersController < ApplicationController
        selectedstrains = []
         clearspositive = Strain.all.select do |strain|
             selectedpositiveeffects.each do |poseffect|
-            break if strain.positive_effects.exclude? poseffect
+                break if strain.positive_effects.exclude? poseffect
             end
         end
 
@@ -120,17 +121,17 @@ class JoinersController < ApplicationController
             $strainstodisplay.push(strain)
         end
 
-        strainarray = $strainstodisplay.each do |strain|
+        strainarray = $strainstodisplay.map do |strain|
             Strain.find_by name: strain.name
         end
 
-        effectarray = Effect.all.each do |effect|
+        effectarray = Effect.all.map do |effect|
             effect.id
         end
 
-       @joiners = strainarray.each do |strain|
+       @joiners = strainarray.map do |strain|
             Joiner.create(
-                id: strain.id,
+                strain_id: strain.id,
                 name: strain.name,
                 category: strain.race,
                 flavors: strain.flavor,
@@ -140,10 +141,11 @@ class JoinersController < ApplicationController
             )
         end
 
-        # byebug
-        render json: @joiners 
-        # redirect_to "http://localhost:3001/suggestions.html" 
+
+        # render json: @joiners 
+        redirect_to "http://localhost:3001/suggestions.html" 
         
+        # byebug
     end
 
 
