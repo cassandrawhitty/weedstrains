@@ -21,7 +21,7 @@ h1 {
 .strain-card { 
     background-color: #affaba;
     box-shadow: 10px 10px 10px black;
-    max-width: 200px; 
+    max-width: 300px; 
     margin: 10px; 
     border-radius: 10px; 
     font-family: "Do Hyeon", sans-serif;
@@ -32,3 +32,8 @@ h1 {
     display: flex;
     flex-direction: row; 
 }
+
+/* p > .strain-card {
+    display: flex;
+    flex-wrap: wrap; 
+} */
