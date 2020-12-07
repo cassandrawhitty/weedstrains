@@ -84,3 +84,36 @@ selecteffects = []
 
 
 end
+
+# create an empty strains array
+# loop through array of strain objects
+    # bool_pos_effects = 0
+    # bool_neg_effects = 0
+    # bool_med_effects = 0
+    # loop through selectedpositiveeffects array
+        # check_pos_effects = 0
+        # loop through the array of positive effects on the particular strain we are on
+            # compare the effect from the selectedpositiveeffects array to the effect from the positive effects array on the strain
+                # if they do match, check_pos_effects += 1
+        # end loop
+        # if check_pos_effects != the length of the selectedpositiveeffects array
+            # then bool_pos_effects = 1
+        # end
+        # loop through the array of medical effects on the particular strain we are on
+            # compare the effect from the selectedmedicaleffects array to the effect from the medical effects array on the strain
+                # if they do match, check_med_effects += 1
+        # end loop
+        # if check_med_effects != the length of the selectedmedicaleffects array
+            # then bool_med_effects = 1
+        # end
+        # loop through the array of negative effects on the particular strain we are on
+            # compare the effect from the selectednegativeeffects array to the effect from the negative effects array on the strain
+                # if they do match, check_neg_effects += 1
+        # end loop
+        # if check_neg_effects != the length of the selectednegativeeffects array
+            # then bool_neg_effects = 1
+        # end
+        # if bool_pos_effects + bool_neg_effects + bool_med_effects = 0
+            # then add the strain to strains array
+        # end
+    # end loop for that strain
