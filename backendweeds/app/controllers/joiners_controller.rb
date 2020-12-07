@@ -29,14 +29,53 @@ selecteffects = []
         #    puts selecteffects
         end
 
-       selectedstrains = Strain.all.select do |strain|
-            
-            byebug
+    #    selectedstrains = []
+    #    Strain.all.select do |strain|
+    #     selectedpositiveeffects.each do |poseffect|
+    #         if strain.positive_effects.include? poseffect
+    #         selectedstrains.push(strain)
+    #         end
+    #     selectedmedicaleffects.each do |medeffect|
+    #         if strain.medical_effects.include? medeffect
+    #             selectedstrains.push(strain)
+    #         end
+    #     selectednegativeeffects.each do |negeffect|
+    #         if strain.negative_effects.include? negeffect
+    #             selectedstrains.push(strain)
+    #         end
+    #     end 
+    #     end
+    #     end
+    #     end
+
+       selectedstrains = []
+       Strain.all.select do |strain|
+
+        selectedpositiveeffects.select do |poseffect|
+
+            selectedmedicaleffects.select do |medeffect|
+
+                selectednegativeeffects.select do |negeffect|
+
+            if strain.positive_effects.include? poseffect
+
+                if strain.medical_effects.include? medeffect 
+
+                    if strain.negative_effects.include? negeffect 
+
+                        selectedstrains.push(strain)
+
+                    end
+                end
+            end
+        end 
+        end
+        end  
         end
 
 
 
-        # byebug
+        byebug
 
         redirect_to "http://localhost:3001"
     end
