@@ -6,6 +6,10 @@ class JoinersController < ApplicationController
         render json: @joiners 
     end
 
+    def show 
+
+    end
+
     def create
 $strainstodisplay = []
 selectedpositiveeffects = []
@@ -55,12 +59,15 @@ selecteffects = []
             effect.id
         end
 
+        strainarray.each do |strain|
+            Joiner.create(
+                byebug
+            )
+        end
+
 
         byebug
         redirect_to "http://localhost:3001"
-
-
-
 
 
 
