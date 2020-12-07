@@ -59,20 +59,20 @@ selecteffects = []
             effect.id
         end
 
-        strainarray.each do |strain|
+       @joiners = strainarray.each do |strain|
             Joiner.create(
-                byebug
+                id: strain.id,
+                name: strain.name,
+                category: strain.race,
+                flavors: strain.flavor,
+                positive_effects: strain.positive_effects,
+                medical_effects: strain.medical_effects,
+                negative_effects: strain.negative_effects
             )
         end
 
-
-
-
-
-        redirect_to "http://localhost:3001"
-
-
-
+        render json: @joiners
+        # redirect_to "http://localhost:3000/joiners"
 
     end
 

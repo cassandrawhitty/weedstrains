@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_171833) do
+ActiveRecord::Schema.define(version: 2020_12_07_030840) do
 
   create_table "effects", force: :cascade do |t|
     t.string "effect"
@@ -26,11 +26,15 @@ ActiveRecord::Schema.define(version: 2020_12_04_171833) do
   end
 
   create_table "joiners", force: :cascade do |t|
-    t.integer "effect_id", null: false
     t.integer "strain_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["effect_id"], name: "index_joiners_on_effect_id"
+    t.string "name"
+    t.string "category"
+    t.string "flavors"
+    t.string "positive_effects"
+    t.string "medical_effects"
+    t.string "negative_effects"
     t.index ["strain_id"], name: "index_joiners_on_strain_id"
   end
 
@@ -45,6 +49,5 @@ ActiveRecord::Schema.define(version: 2020_12_04_171833) do
     t.string "name"
   end
 
-  add_foreign_key "joiners", "effects"
   add_foreign_key "joiners", "strains"
 end
