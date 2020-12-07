@@ -1,15 +1,5 @@
 const APIKey = "4nX8ujH";
 
-// fetch(`http://strainapi.evanbusse.com/${APIKey}/strains/search/all`)
-//   .then((response) => response.json())
-//   .then((strains) => {
-//     showStrains(strains);
-//   });
-
-// function showStrains(strains) {
-//   console.log(strains);
-// }
-
 let positiveEffects = [];
 let medicalEffects = [];
 let negativeEffects = [];
@@ -46,7 +36,6 @@ function showPositiveEffects(positiveEffects) {
     option.type = "checkbox";
     label = effect["effect"];
     option.setAttribute("name", `${label}-effect-positive`);
-    // label.htmlFor("name", `${label}-effect-negative`);
     option.id = label;
     positiveDiv.append(option);
     positiveDiv.append(label);
@@ -75,7 +64,6 @@ function showMedicalEffects(medicalEffects) {
     option.type = "checkbox";
     label = effect["effect"];
     option.setAttribute("name", `${label}-effect-medical`);
-    // label.htmlFor("name", `${label}-effect-negative`);
     option.id = label;
     medicalDiv.append(option);
     medicalDiv.append(label);
@@ -104,7 +92,6 @@ function showNegativeEffects(negativeEffects) {
     option.type = "checkbox";
     label = effect["effect"];
     option.setAttribute("name", `${label}-effect-negative`);
-    // label.htmlFor("name", `${label}-effect-negative`);
     option.id = label;
     negativeDiv.append(option);
     negativeDiv.append(label);
@@ -113,32 +100,14 @@ function showNegativeEffects(negativeEffects) {
   effectsection.append(negativeDiv);
 }
 
-// function showEffects(effects) {
-//   effects.map((effect) => {
-//     let option = document.createElement("input");
-//     let label = document.createElement("label");
-//     let effectsection = document.querySelector("#fieldset");
-//     let linebreak = document.createElement("br");
-//     option.classList.add("selectableEffect");
-//     option.type = "checkbox";
-//     label = effect["effect"];
-//     effectsection.append(option);
-//     effectsection.append(label);
-//     effectsection.append(linebreak);
-//   });
-// }
-
 const params = new URLSearchParams(window.location.search);
-console.log(params);
 let mySearchParams = params.get("strains");
-// console.log(params);
 
 let effectForm = document.querySelector("#effects-form");
 
 effectForm.addEventListener("submit", callbackFunction);
 
 function callbackFunction(event) {
-  //   event.preventDefault();
   checkedOptions = document.querySelectorAll("input[type=checkbox]:checked");
   getStrings(checkedOptions);
 }
@@ -146,11 +115,11 @@ function callbackFunction(event) {
 let desiredEffects = [];
 
 function getStrings(checkedOptions) {
-  //   console.log(checkedOptions.values());
   return Array.from(checkedOptions).map((element) => {
     desiredEffects.push(element.name);
   });
-  // .split(" ");
 }
 
-console.log(desiredEffects);
+// fetch("http://localhost:3000/joiners")
+//   .then((response) => response.json())
+//   .then(console.log);
