@@ -17,10 +17,10 @@ fetch("http://localhost:3000/joiners")
       card.classList.add("strain-card")
       name.textContent = strain.name
       category.textContent = strain.race
-      flavors.textContent = "Flavors: " + strain.flavors
-      positive_effects.textContent = "Positive Effects: " + strain.positive_effects
-      medical_effects.textContent = "Medical Effects: " + strain.medical_effects
-      negative_effects = "Negative Effects: " + strain.negative_effects
+      flavors.textContent = "Flavors: " + JSON.parse(strain.flavors)
+      positive_effects.textContent = "Positive Effects: " + JSON.parse(strain.positive_effects)
+      medical_effects.textContent = "Medical Effects: " + JSON.parse(strain.medical_effects)
+      negative_effects = "Negative Effects: " + JSON.parse(strain.negative_effects)
       
       card.append(name, category, flavors, positive_effects, medical_effects, negative_effects)
       section.append(card)
