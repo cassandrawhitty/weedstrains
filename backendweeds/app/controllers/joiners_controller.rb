@@ -66,7 +66,9 @@ selecteffects = []
         end
 
 
-        byebug
+
+
+
         redirect_to "http://localhost:3001"
 
 
