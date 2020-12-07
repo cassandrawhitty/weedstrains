@@ -7,17 +7,13 @@ class JoinersController < ApplicationController
     end
 
     def create
-        # byebug
-        # Joiner.create(
-            
-        # )
+$strainstodisplay = []
 selectedpositiveeffects = []
 selectednegativeeffects = []
 selectedmedicaleffects = []
 selecteffects = []  
         params.each do |key, value|
            if (key.include? "effect" && "positive")
-                # effects = Effect.find_by effect: key.split("-").first
                 selectedpositiveeffects.push(key.split("-").first)
            elsif (key.include? "effect" && "medical")
             selectedmedicaleffects.push(key.split("-").first)
@@ -26,59 +22,51 @@ selecteffects = []
            end
            
            selecteffects.push(Effect.find_by effect: "{\"effect\"=>\"Relaxed\", \"type\"=>\"positive\"}")
-        #    puts selecteffects
         end
 
-    #    selectedstrains = []
-    #    Strain.all.select do |strain|
-    #     selectedpositiveeffects.each do |poseffect|
-    #         if strain.positive_effects.include? poseffect
-    #         selectedstrains.push(strain)
-    #         end
-    #     selectedmedicaleffects.each do |medeffect|
-    #         if strain.medical_effects.include? medeffect
-    #             selectedstrains.push(strain)
-    #         end
-    #     selectednegativeeffects.each do |negeffect|
-    #         if strain.negative_effects.include? negeffect
-    #             selectedstrains.push(strain)
-    #         end
-    #     end 
-    #     end
-    #     end
-    #     end
 
        selectedstrains = []
-       Strain.all.select do |strain|
+       clearspositive = Strain.all.select do |strain|
+        selectedpositiveeffects.each do |poseffect|
+            break if strain.positive_effects.exclude? poseffect
+        end
+    end
+        clearsmedical = clearspositive.select do |strain|
+            selectedmedicaleffects.each do |medeffect|
+                break if strain.medical_effects.exclude? medeffect
+            end
+        end
 
-        selectedpositiveeffects.select do |poseffect|
-
-            selectedmedicaleffects.select do |medeffect|
-
-                selectednegativeeffects.select do |negeffect|
-
-            if strain.positive_effects.include? poseffect
-
-                if strain.medical_effects.include? medeffect 
-
-                    if strain.negative_effects.include? negeffect 
-
-                        selectedstrains.push(strain)
-
-                    end
+            clearsallthree = clearsmedical.select do |strain|
+                selectednegativeeffects.each do |negeffect|
+                    break if strain.negative_effects.include? negeffect
                 end
             end
-        end 
-        end
-        end  
+
+        clearsallthree.each do |strain|
+            $strainstodisplay.push(strain)
         end
 
+        strainarray = $strainstodisplay.each do |strain|
+            Strain.find_by name: strain.name
+        end
+
+        effectarray = Effect.all.each do |effect|
+            effect.id
+        end
 
 
         byebug
-
         redirect_to "http://localhost:3001"
+
+
+
+
+
+
+
     end
+
 
     
 
