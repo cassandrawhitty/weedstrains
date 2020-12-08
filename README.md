@@ -18,11 +18,11 @@
  
  ## Setup
  
-In order to experience this app, users must clone this Github repository and open it in their code editor. 
-Install the Ruby gems by running "bundle install". 
-Create your local database by running "rails db:migrate". 
-Seed the database by running "rails db:seed". 
-After doing all of that, start up the back-end by running "rails s", and the front-end by running "lite-server", which will open the app in your browser. 
+- In order to experience this app, users must clone this Github repository and open it in their code editor. 
+- Install the Ruby gems by running "bundle install". 
+- Create your local database by running "rails db:migrate". 
+- Seed the database by running "rails db:seed". 
+- After doing all of that, start up the back-end by running "rails s", and the front-end by running "lite-server", which will open the app in your browser. 
 
 ## Instructions
 
