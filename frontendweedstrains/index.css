@@ -56,6 +56,7 @@ body {
 #effects-section {
   display: block;
   flex-direction: row;
+
   /* flex-wrap: wrap; */
   /* font-family: "Work Sans", sans-serif; */
 }
@@ -83,4 +84,20 @@ fieldset > #effects-div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.above-form {
+  display: inline-block;
+  flex-direction: row;
+}
+
+.below-form {
+  margin-top: 55px;
+  margin-left: -19px;
+}
+
+.search {
+  margin-top: -45px;
+  margin-bottom: 4px;
+  margin-left: 17px;
 }
