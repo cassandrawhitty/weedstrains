@@ -44,6 +44,7 @@ function showPositiveEffects(positiveEffects) {
     label = effect["effect"];
     option.setAttribute("name", `${label}-effect-positive`);
     option.id = label;
+    // label.for = label;
     positiveDiv.append(option);
     positiveDiv.append(label);
     positiveDiv.append(linebreak);
