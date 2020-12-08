@@ -14,7 +14,7 @@
  
  ## Demo Video
  
- [Link Demo Video here]
+ [Herbals - Strain Suggester Intro Video](https://youtu.be/DBSvbyIl-LU)
  
  ## Setup
  
