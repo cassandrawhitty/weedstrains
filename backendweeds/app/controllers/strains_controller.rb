@@ -1,8 +1,15 @@
 class StrainsController < ApplicationController
 
     def index
-        @strains = Strain.all
-        render json: @strains
+        if params[:search]
+            @strains = Strain.where('name LIKE ?', "%#{params[:search]}%")
+        else
+            @strains = Strain.all
+        end
+        # id = Strain.find_by(name: params[:search]).id
+        # # byebug
+            render json: @strains
+        #     redirect_to "http:localhost:3001/strains.html/#{id}"
     end
 
     def show 
@@ -11,9 +18,5 @@ class StrainsController < ApplicationController
         render json: @strain
     end
 
-    def filter 
-        p params
-        render json: params
-    end
 
 end

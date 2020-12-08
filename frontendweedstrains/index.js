@@ -1,10 +1,17 @@
 const APIKey = "4nX8ujH";
+const searchParams = new URLSearchParams(window.location.search);
+const search = searchParams.get("search");
 
 let positiveEffects = [];
 let medicalEffects = [];
 let negativeEffects = [];
-
 let effectsURL = `http://strainapi.evanbusse.com/${APIKey}/searchdata/effects`;
+
+// if (search) {
+//   effectsurl = `http://localhost:3001/strains?search=${search}`;
+//   fetch(effectsURL).then(((response) => response.json()).then(console.log));
+// }
+
 fetch(effectsURL)
   .then((response) => response.json())
   .then((effects) => {
